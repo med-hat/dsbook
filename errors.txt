@@ -34,6 +34,69 @@ If we want to be absolutely sure we use the __dplyr__ `filter` we can use
 Should be
 If we want to be absolutely sure that we use the __dplyr__ `filter`, we can use
 
+page 52-53 in pdf
+
+The list subsection (2.4.6) changed quite a bit. Better to look at new version. Here is what it shoudl be now:
+
+
+Data frames are a special case of _lists_. Lists are useful because you can store any combination of different types. You can create a list using the `list` function like this:
+
+```{r}
+record <- list(name = "John Doe",
+             student_id = 1234,
+             grades = c(95, 82, 91, 97, 93),
+             final_grade = "A")
+```
+
+The function `c` is described in Section \@ref{vectors}.
+
+This list includes a character, a number, a vector with five numbers, and another character.
+
+```{r}
+record
+class(record)
+```
+
+
+As with data frames, you can extract the components of a list with the accessor `$`. 
+
+```{r}
+record$student_id
+```
+
+We can also use double square brackets (`[[`) like this:
+
+```{r}
+record[["student_id"]]
+```
+
+You should get used to the fact that in R, there are often several ways to do the same thing, such as accessing entries.
+
+You might also encounter lists without variable names.
+
+```{r,}
+record2 <- list("John Doe", 1234)
+record2
+```
+
+If a list does not have names, you cannot extract the elements with `$`, but you can still use the brackets method and instead of providing the variable name, you provide the list index, like this:
+
+```{r}
+record2[[1]]
+```
+
+
+We won't be using lists until later, but you might encounter one in your own exploration of R. For this reason, we show you some basics here. 
+
+
+page 56
+
+This is not a visible change, but because we added a reference we need to add a label to section:
+
+##  Vectors {#vectors}
+
+
+
 Page 63, 91 in pdf
 this is now a special data frame called a grouped data frame and dplyr functions
 Add comma:
@@ -149,6 +212,15 @@ Page 199, 147 in pdf
 
 closet should be closest
 
+302 in pdf
+
+There is a - instead of + in CI:
+
+ $[\bar{X} - 2\hat{\mbox{SE}}(\bar{X}), \bar{X} - 2\hat{\mbox{SE}}(\bar{X})]$ 
+Should be
+ $[\bar{X} - 2\hat{\mbox{SE}}(\bar{X}), \bar{X} + 2\hat{\mbox{SE}}(\bar{X})]$ 
+
+
 
 Page 344, 372 in pdf
 
@@ -214,6 +286,15 @@ Should be:
 #> 3       3    1.52
 #> 4       3.1  1.49
 #> 5       3.2  1.58
+
+
+Page 355 in pdf
+
+72 - 69.1) / 2.5
+
+Should be
+
+(72.0 - 69.1) / 2.5
 
 
 Page 347, 375 in pdf
@@ -292,9 +373,92 @@ Page 667, 695 in pdf
 
 Remove sentence "We have already shown how we can do this with RStudio."
 
+716 in pdf
+
+```{r echo=FALSE}
+summary(pressure)
+```
+
+Should be 
+
+```{r, echo=FALSE}
+summary(pressure)
+```
+
+687 in pdf
+
+mv ../cv.tex ./
+
+Should be 
+
+mv ../resumes/cv.tex ./
 
 
+page 648  
+
+First formal should not have 1/N should be
+
+$$ \sum_{u,i} \left(y_{u,i} - \mu - b_i\right)^2 + \lambda \sum_{i} b_i^2 $$
+
+and "The first term is just least squares"
+should be "The first term is just the sum of squares"
+"
+
+
+page 651 in pdf
+
+first formula should not have 1/N
+
+should be:
+
+$$
+\sum_{u,i} \left(y_{u,i} - \mu - b_i - b_u \right)^2 + 
+\lambda \left(\sum_{i} b_i^2 + \sum_{u} b_u^2\right)
+$$
+
+
+NEED TO FIND PAGE:
+
+This package is intended for relatively simple tasks such as converging data into tables. 
+should be
+This package is intended for relatively simple tasks such as converting data into tables. 
+
+
+In section 28.3.2 change
+  geom_smooth(span = 0.15, method.args = list(degree=1))
+To
+  geom_smooth(method = "loess", span = 0.15, method.args = list(degree=1))
+
+
+Section 27.4.5
+Change 
+A cutoff of 65 makes more sense than 64. Furthermore, it balances the specificity and sensitivity of our confusion matrix:
+To
+A cutoff of `r best_cutoff` makes more sense than 64. Furthermore, it balances the specificity and sensitivity of our confusion matrix:
+
+page 502 in pdf
+
+Exercise 3 code need to read mnist so should be:
+
+library(dslabs)
+mnist <- read_mnist()
+y <- mnist$train$labels
+
+Page 626 in the pdf
+The average distance function has i,j and instead should have 1,j and 2,j
+
+$$\sqrt{ \frac{1}{2} \sum_{j=1}^2 (X_{i,j}-X_{i,j})^2 },$$
+
+Should be 
+
+$$\sqrt{ \frac{1}{2} \sum_{j=1}^2 (X_{1,j}-X_{2,j})^2 },$$
+
+NEED to FIX JSON PART. Search for citi_bike
+ALSO IN SPANISH VERSION
+=====================================
 Improvements (not errors)
+
+
 
 Page 67
 
